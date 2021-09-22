@@ -2,6 +2,26 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input CreateUserInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  createUser(userInput: CreateUserInput!): UsersEntity!
+  removeUser(id: ID!): Boolean!
+}
+
 type Query {
-    getTest: String!
+  findAllUsers: [UsersEntity!]!
+  findUserByEmail(email: String!): UsersEntity!
+  findUserById(id: ID!): UsersEntity!
+}
+
+type UsersEntity {
+  createdAt: String!
+  email: String!
+  id: ID!
+  password: String!
+  updatedAt: String!
 }
