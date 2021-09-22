@@ -8,10 +8,10 @@ export abstract class BaseEntity {
   id: number
 
   @Field({ nullable: false })
-  @CreateDateColumn()
-  createdAt: string
+  @CreateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
+  createdAt: Date
 
   @Field({ nullable: false })
-  @UpdateDateColumn()
-  updatedAt: string
+  @UpdateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
+  updatedAt: Date
 }
