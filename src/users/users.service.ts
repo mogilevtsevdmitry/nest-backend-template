@@ -18,7 +18,7 @@ export class UsersService {
     const { email, password } = createUserInput
     const candidate = await this.findUserByEmail(email)
     if (candidate) {
-      throw new HttpException('', HttpStatus.CONFLICT)
+      throw new HttpException('Пользователь с таким email уже существует', HttpStatus.CONFLICT)
     }
     const hashedPassword = await Helper.hash(password)
     const user = await this.userRepo.create({ email, password: hashedPassword })
@@ -38,6 +38,10 @@ export class UsersService {
   }
 
   async removeUser(id: number): Promise<boolean> {
-    return !!await this.userRepo.delete({ id })
+    const user = await this.findUserById(id)
+    if (!user) {
+      throw new HttpException('Пользователь с таким ID не найден', HttpStatus.BAD_REQUEST)
+    }
+    return !!await this.userRepo.remove(user)
   }
 }
