@@ -2390,6 +2390,11 @@ cssfilter@0.0.10:
   resolved "https://registry.yarnpkg.com/cssfilter/-/cssfilter-0.0.10.tgz#c6d2672632a2e5c83e013e6864a42ce8defd20ae"
   integrity sha1-xtJnJjKi5cg+AT5oZKQs6N79IK4=
 
+cssom@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/cssom/-/cssom-0.2.0.tgz#ce47d8d63b6bfe46b447476c7feac487b44a8a25"
+  integrity sha1-zkfY1jtr/ka0R0dsf+rEh7RKiiU=
+
 cssom@^0.4.4:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/cssom/-/cssom-0.4.4.tgz#5a66cf93d2d0b661d80bf6a44fb65f5c2e4e0a10"
@@ -2986,6 +2991,13 @@ find-up@^4.0.0, find-up@^4.1.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
+fingerprint@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/fingerprint/-/fingerprint-0.0.1.tgz#8ad7e2bfd46ca58c0a62e611524feab3106db889"
+  integrity sha1-itfiv9RspYwKYuYRUk/qsxBtuIk=
+  dependencies:
+    stylus "0.13.x"
+
 flat-cache@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/flat-cache/-/flat-cache-3.0.4.tgz#61b0338302b2fe9f957dcc32fc2a87f1c3048b11"
@@ -3217,6 +3229,11 @@ graphql@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.6.0.tgz#e69323c6a9780a1a4b9ddf7e35ca8904bb04df02"
   integrity sha512-WJR872Zlc9hckiEPhXgyUftXH48jp2EjO5tgBBOyNMRJZ9fviL2mJBD6CAysk6N5S0r9BTs09Qk39nnJBkvOXQ==
+
+growl@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/growl/-/growl-1.1.0.tgz#93808dd6df4e336785d5213b9d47c5047f363623"
+  integrity sha1-k4CN1t9OM2eF1SE7nUfFBH82NiM=
 
 has-ansi@^2.0.0:
   version "2.0.0"
@@ -5541,6 +5558,14 @@ strip-json-comments@^3.1.0, strip-json-comments@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.1.1.tgz#31f1281b3832630434831c310c01cccda8cbe006"
   integrity sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==
+
+stylus@0.13.x:
+  version "0.13.9"
+  resolved "https://registry.yarnpkg.com/stylus/-/stylus-0.13.9.tgz#7472e4d753849833583ece0a13d3352400a53547"
+  integrity sha1-dHLk11OEmDNYPs4KE9M1JAClNUc=
+  dependencies:
+    cssom "0.2.0"
+    growl "1.1.0"
 
 subscriptions-transport-ws@0.9.19:
   version "0.9.19"

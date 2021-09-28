@@ -13,29 +13,35 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Mutation {
-    createUser(userInput: CreateUserInput!): UsersEntity!
+    createUser(userInput: CreateUserInput!): UserEntity!
     login(user: CreateUserInput!): TokenDto!
-    register(user: CreateUserInput!): UsersEntity!
+    register(user: CreateUserInput!): UserEntity!
     removeUser(id: ID!): Boolean!
 }
 
 type Query {
-    findAllUsers: [UsersEntity!]!
-    findUserByEmail(email: String!): UsersEntity!
-    findUserById(id: ID!): UsersEntity!
-    whoAmI: UsersEntity!
+    findAllUsers: [UserEntity!]!
+    findUserByEmail(email: String!): UserEntity!
+    findUserById(id: ID!): UserEntity!
+    whoAmI: UserEntity!
 }
 
 type TokenDto {
     accessToken: String!
-    expiresIn: DateTime!
-    token: String!
+    refreshToken: String!
 }
 
-type UsersEntity {
+type TokenEntity {
+    expiresIn: DateTime!
+    token: String!
+    user: UserEntity!
+}
+
+type UserEntity {
     createdAt: DateTime!
     email: String!
     id: ID!
     password: String!
+    token: [TokenEntity!]!
     updatedAt: DateTime!
 }

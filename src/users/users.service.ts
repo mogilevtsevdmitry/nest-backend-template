@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 
-import { UsersEntity } from './users.entity'
+import { UserEntity } from './user.entity'
 import { Repository } from 'typeorm'
 import { CreateUserInput } from './create-user.input'
 import { Helper } from './helper'
@@ -9,12 +9,12 @@ import { Helper } from './helper'
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(UsersEntity)
-    private readonly userRepo: Repository<UsersEntity>
+    @InjectRepository(UserEntity)
+    private readonly userRepo: Repository<UserEntity>,
   ) {
   }
 
-  async createUser(createUserInput: CreateUserInput): Promise<UsersEntity> {
+  async createUser(createUserInput: CreateUserInput): Promise<UserEntity> {
     const { email, password } = createUserInput
     const candidate = await this.findUserByEmail(email)
     if (candidate) {
@@ -25,15 +25,15 @@ export class UsersService {
     return await this.userRepo.save(user)
   }
 
-  async findAllUsers(): Promise<UsersEntity[]> {
+  async findAllUsers(): Promise<UserEntity[]> {
     return await this.userRepo.find()
   }
 
-  async findUserById(id: number): Promise<UsersEntity> {
+  async findUserById(id: number): Promise<UserEntity> {
     return await this.userRepo.findOne({ id })
   }
 
-  async findUserByEmail(email: string): Promise<UsersEntity> {
+  async findUserByEmail(email: string): Promise<UserEntity> {
     return await this.userRepo.findOne({ email })
   }
 
